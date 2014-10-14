@@ -24,11 +24,13 @@ public class ViewController {
 			System.out.println("Arquivo aberto:\n" + enderecoArquivo);
 
 			String linha = lerArq.readLine(); //Le a primeira linha do arquivos
-
+			
+			int teste = linha.indexOf(" ");
+			
 			while(linha != null) {
-
-				if (linha.length() == 44
-						&& !linha.contains(" "));
+				// Valida se a chave tem 44 caracteres e se algum deles √© um caractere espa√ßo
+				if ( (linha.length() == 44) 
+						&& (linha.indexOf(" ") < 0))
 					service.salvar(linha);
 
 				linha = lerArq.readLine();
@@ -39,11 +41,11 @@ public class ViewController {
 
 		} catch(FileNotFoundException e) {
 			e.printStackTrace();
-			System.out.println("Arquivo n„o encontrado");
+			System.out.println("Arquivo nÔøΩo encontrado");
 
 		} catch (IOException e) {
 			e.printStackTrace();
-			System.out.println("Linha n„o encontrada");
+			System.out.println("Linha nÔøΩo encontrada");
 		}
 
 	}
