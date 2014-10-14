@@ -27,7 +27,8 @@ public class ViewController {
 
 			while(linha != null) {
 
-				if (linha.length() == 44)
+				if (linha.length() == 44
+						&& !linha.contains(" "));
 					service.salvar(linha);
 
 				linha = lerArq.readLine();
