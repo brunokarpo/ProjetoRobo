@@ -1,0 +1,7 @@
+# Ignroando pastas de compilados
+target/
+
+# Ignorando arquivos do Eclipse
+.settings/
+.classpath
+.project
