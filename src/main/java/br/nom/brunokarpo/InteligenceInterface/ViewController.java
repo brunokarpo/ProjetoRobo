@@ -26,9 +26,9 @@ public class ViewController {
 			String linha = lerArq.readLine(); //Le a primeira linha do arquivos
 			
 			while(linha != null) {
-				// Valida se a chave tem 44 caracteres e se algum deles é um caractere espaço
-				if ( (linha.length() == 44) 
-						&& (linha.indexOf(" ") < 0))
+
+				linha.replace(" ", ""); // pega a chave e tira todos os espa�os que tem nela
+				if (linha.length() == 44)
 					service.salvar(linha);
 
 				linha = lerArq.readLine();
