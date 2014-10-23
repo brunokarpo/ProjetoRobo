@@ -4,14 +4,16 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
+import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import br.nom.brunokarpo.services.Services;
 
 public class ViewController {
 
-	private static final Logger LOGGER = Logger.getLogger(ViewController.class);
+	private static final Logger LOGGER = LogManager.getLogger(ViewController.class);
 	
 	private Services service;
 
@@ -42,10 +44,10 @@ public class ViewController {
 			lerArq.close();
 
 		} catch(FileNotFoundException e) {
-			LOGGER.log(Level.ALL, "Arquivo nao encontrado", e);
+			LOGGER.log(Level.ERROR, "Arquivo nao encontrado", e);
 
 		} catch (IOException e) {
-			LOGGER.log(Level.ALL, "Linha nao encontrada", e);
+			LOGGER.log(Level.ERROR, "Linha nao encontrada", e);
 			
 		}
 
