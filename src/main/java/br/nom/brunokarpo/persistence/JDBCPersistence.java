@@ -3,7 +3,7 @@ package br.nom.brunokarpo.persistence;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 
-import br.nom.brunokarpo.utils.JdbcUtil;
+import br.ufg.pw.utilitarios.JdbcUtil;
 
 public class JDBCPersistence {
 
