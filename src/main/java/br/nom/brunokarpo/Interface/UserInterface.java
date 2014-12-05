@@ -20,10 +20,10 @@ import br.nom.brunokarpo.InteligenceInterface.ViewController;
 public class UserInterface extends JFrame {
 
 	private JLabel label1; // Texto para informar o que o usuario deve fazer
-	private JTextField textField1; // Campo de texto que ficar� a string com o local do arquivo.
-	private JFileChooser fileChooser; // O cara respons�vel pela escolha do arquivo;
+	private JTextField textField1; // Campo de texto que ficara a string com o local do arquivo.
+	private JFileChooser fileChooser; // O cara responsavel pela escolha do arquivo;
 	private JButton buttonOpen; // O cara responsavel pela escolha do arquivo;
-	private JButton buttonOk; // O botão responsável por iniciar a aplicação;
+	private JButton buttonOk; // O botao responsavel por iniciar a aplicacao;
 	private JButton buttonClear;
 
 	/* Construtor que ira criar a interface do usuario */
@@ -33,8 +33,8 @@ public class UserInterface extends JFrame {
 		super( "Inseridor Robo" );
 		setLayout( new FlowLayout() ); // Configura o layout do frame
 
-		criarLabel(); //Esse cara cria o texto que informa o que o usuario dever� fazer;
-		criarTextField(); //Esse cara cria o Campo de texto onde estar� o endere�o do arquivo
+		criarLabel(); //Esse cara cria o texto que informa o que o usuario devera fazer;
+		criarTextField(); //Esse cara cria o Campo de texto onde estara o endereco do arquivo
 		criarJButtonOpen(); // Esse cara cria o butao para abrir arquivo;
 		criarJButtonOk(); // Esse cara cria o butao ok;
 		criarJButtonClear(); //Esse cara cria o butao limpar;
@@ -43,7 +43,7 @@ public class UserInterface extends JFrame {
 
 
 	private void criarLabel() {
-		label1 = new JLabel( "Selecione o arquivo com as chaves para importacao:" ); //Esse cara cria o texto na aplica��o
+		label1 = new JLabel( "Selecione o arquivo com as chaves para importacao:" ); //Esse cara cria o texto na aplicacao
 		label1.setHorizontalAlignment( JLabel.LEFT ); //Fala para o bagulho ficar a esquerda
 		add( label1 ); // esse cara adiciona o texto no aplicativo do usuario;
 	}
@@ -51,7 +51,7 @@ public class UserInterface extends JFrame {
 	private void criarTextField() {
 		textField1 = new JTextField( 40 ); //Esse cara cria o JTextField
 		textField1.setEditable( false ); //Esse trecho impede que o usuario edite o JTextField diretamente;
-		textField1.setHorizontalAlignment( JTextField.LEFT ); //Fala para o componente ficar � esquerda;
+		textField1.setHorizontalAlignment( JTextField.LEFT ); //Fala para o componente ficar a esquerda;
 		add( textField1 ); //Aqui a gente adiciona o TextField na Gui
 
 		/* Quando o usuario clicar na caixa de texto, ele deve selecionar um arquivo TXT na estrutura de diret�rios da m�quina
