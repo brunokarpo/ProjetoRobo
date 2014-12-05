@@ -4,6 +4,68 @@
 	<groupId>ProjetoRobo</groupId>
 	<artifactId>ProjetoRobo</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+
+
+	<!-- valores padrao da geracao de strip -->
+	<properties>
+		<assembler.dir>${project.build.directory}/generated-resources/appassembler/jsw</assembler.dir>
+		<jsw.daemon>Interface-Robo</jsw.daemon>
+		<jsw.main.class>br.nom.brunokarpo.Interface.UserInterfaceMain</jsw.main.class>
+	</properties>
+
+	<build>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<includes>
+					<include>**/*.properties</include>
+				</includes>
+				<!-- Se quiser excluir algum arquivo dos recursos -->
+				<!-- <excludes> <exclude>**/*svn</exclude> </excludes> -->
+
+				<filtering>true</filtering>
+			</resource>
+		</resources>
+
+		<plugin>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-antrun-plugin</artifactId>
+			<version>1.6</version>
+			<executions>
+				<execution>
+					<id>config</id>
+					<phase>prepare-package</phase>
+					<goals>
+						<goal>run</goal>
+					</goals>
+					<configuration>
+						<tasks>
+							<!-- Montando pacote de instalacao -->
+							<!-- Somente arquivos essenciais pra aplicacao subir. -->
+							<mkdir dir="${assembler.dir}/${jsw.daemon}/configs" />
+							<copy todir="${assembler.dir}/${jsw.daemon}/configs"
+								includeEmptyDirs="false">
+								<fileset dir="${project.build.directory}/classes"
+									includes="bd-config.properties" />
+							</copy>
+
+							<!-- Todos os arquivos templates... -->
+							<mkdir dir="${assembler.dir}/${jsw.daemon}/templates" />
+							<copy todir="${assembler.dir}/${jsw.daemon}/templates"
+								includeEmptyDirs="false">
+								<fileset dir="${project.build.directory}/classes"
+									includes="**/*.properties **/*.xml" />
+							</copy>
+							<mkdir dir="${assembler.dir}/${jsw.daemon}/logs" />
+							<touch
+								file="${assembler.dir}/${jsw.daemon}/build-${project.artifactId}-${maven.build.timestamp}-${project.version}.tag" />
+						</tasks>
+					</configuration>
+				</execution>
+			</executions>
+		</plugin>
+	</build>
+
 	<dependencies>
 		<dependency>
 			<groupId>Utilitarios</groupId>
@@ -18,24 +80,4 @@
 		</dependency>
 	</dependencies>
 
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>exec-maven-plugin</artifactId>
-				<version>1.2.1</version>
-				<executions>
-					<execution>
-						<goals>
-							<goal>java</goal>
-						</goals>
-					</execution>
-				</executions>
-				<configuration>
-					<mainClass>br.nom.brunokarpo.Interface.UserInterfaceMain</mainClass>
-					<!-- <arguments> <argument>foo</argument> <argument>bar</argument> </arguments> -->
-				</configuration>
-			</plugin>
-		</plugins>
-	</build>
 </project>

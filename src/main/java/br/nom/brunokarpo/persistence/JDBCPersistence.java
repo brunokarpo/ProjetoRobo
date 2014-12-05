@@ -10,7 +10,7 @@ public class JDBCPersistence {
 	private Connection conn; // Conexão com o Banco de Dados
 	private PreparedStatement pstmt; // responsável pelas strings de consulta
 
-	private static final String propertiesFile = "./src/main/resources/configs/bd-config.properties"; // arquivo de configuração
+	private static final String propertiesFile = "bd-config.properties"; // arquivo de configuração
 
 	public void salvar(String chave_acesso) {
 		// implementa a salvura da chave de acesso no banco de dados
