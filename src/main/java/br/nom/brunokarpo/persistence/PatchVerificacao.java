@@ -11,6 +11,8 @@ public class PatchVerificacao {
 	private Connection conn;
 	private PreparedStatement pstmt;
 
+	private static boolean RECURSIVO = false;
+
 	private static final String propertiesFile = "./src/main/resources/configs/bd-config.properties"; // arquivo de configuração
 
 	public boolean verificarExistenciaColuna() {
@@ -22,7 +24,11 @@ public class PatchVerificacao {
 			pstmt.execute();
 		} catch(SQLException e) {
 			aplicarPatch();
-			return false;
+			if(!RECURSIVO) { //verifica se essa e a chamada recursiva
+				RECURSIVO = true; // informa que a proxima chamada sera recursiva
+				if(!verificarExistenciaColuna())
+					return false;
+			}
 		} finally {
 			JdbcUtil.close(conn, pstmt);
 		}
