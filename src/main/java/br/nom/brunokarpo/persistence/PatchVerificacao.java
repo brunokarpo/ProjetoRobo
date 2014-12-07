@@ -13,7 +13,7 @@ public class PatchVerificacao {
 
 	private static boolean RECURSIVO = false;
 
-	private static final String propertiesFile = "bd-config.properties"; // arquivo de configuração
+	private static final String propertiesFile = "/bd-config.properties"; // arquivo de configuraï¿½ï¿½o
 
 	public boolean verificarExistenciaColuna() {
 		conn = JdbcUtil.createConnection(propertiesFile);
