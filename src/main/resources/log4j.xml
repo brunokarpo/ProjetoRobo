@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="iso-8859-1"?>  
+<?xml version="1.0" encoding="iso-8859-1"?>
 <!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
 
 <log4j:configuration>
@@ -13,7 +13,7 @@
 	</appender>
 
 
-	<category name="br.ufg.brunokarpo">
+	<category name="br.nom.brunokarpo">
 		<priority value="INFO" />
 	</category>
 
@@ -22,5 +22,5 @@
 		<priority value="INFO" />
 		<appender-ref ref="FILE" />
 	</root>
-	
-</log4j:configuration> 
+
+</log4j:configuration>

@@ -7,18 +7,20 @@
 
 
 	<!-- valores padrao da geracao de strip -->
+	<!-- Cria as propriedades que serao utilizadas ao longo do POM.xml -->
 	<properties>
-		<assembler.dir>${project.build.directory}/generated-resources/appassembler/jsw</assembler.dir>
-		<jsw.daemon>Interface-Robo</jsw.daemon>
-		<jsw.main.class>br.nom.brunokarpo.Interface.UserInterfaceMain</jsw.main.class>
+		<assembler.dir>${project.build.directory}/generated-resources/appassembler/jsw</assembler.dir> <!-- Pasta onde serao gerado os artefatos do projeto -->
+		<jsw.daemon>Interface-Robo</jsw.daemon> <!-- Nome da pasta do projeto (nome do projeto) -->
+		<jsw.main.class>br.nom.brunokarpo.Interface.UserInterfaceMain</jsw.main.class> <!-- Classe principal do projeto (Main classe) -->
 	</properties>
 
 	<build>
 		<resources>
 			<resource>
-				<directory>src/main/resources</directory>
-				<includes>
+				<directory>src/main/resources</directory> <!-- Diretorio de recursos -->
+				<includes> <!-- Arquivos que serao incluidos nos recursos -->
 					<include>**/*.properties</include>
+					<include>**/.*.xml</include>
 				</includes>
 				<!-- Se quiser excluir algum arquivo dos recursos -->
 				<!-- <excludes> <exclude>**/*svn</exclude> </excludes> -->
@@ -42,11 +44,18 @@
 							<tasks>
 								<!-- Montando pacote de instalacao -->
 								<!-- Somente arquivos essenciais pra aplicacao subir. -->
+								<mkdir dir="${assembler.dir}/${jsw.daemon}/bin" />
+								<copy todir="${assembler.dir}/${jsw.daemon}/bin"
+									includeEmptyDirs="false">
+									<fileset dir="${project.build.directory}/classes"
+										includes="ProjetoRobo.bat" />
+								</copy>
+
 								<mkdir dir="${assembler.dir}/${jsw.daemon}/configs" />
 								<copy todir="${assembler.dir}/${jsw.daemon}/configs"
 									includeEmptyDirs="false">
 									<fileset dir="${project.build.directory}/classes"
-										includes="bd-config.properties" />
+										includes="bd-config.properties log4j.xml" />
 								</copy>
 
 								<!-- Todos os arquivos templates... -->
@@ -57,6 +66,9 @@
 										includes="**/*.properties **/*.xml" />
 								</copy>
 								<mkdir dir="${assembler.dir}/${jsw.daemon}/logs" />
+								<delete>
+									<fileset dir="${assembler.dir}/${jsw.daemon}" includes="*.tag" />
+								</delete>
 								<touch
 									file="${assembler.dir}/${jsw.daemon}/build-${project.artifactId}-${maven.build.timestamp}-${project.version}.tag" />
 							</tasks>
@@ -67,6 +79,7 @@
 		</plugins>
 	</build>
 
+	<!-- Dependencias do projeto -->
 	<dependencies>
 
 		<dependency>
