@@ -20,7 +20,8 @@
 				<directory>src/main/resources</directory> <!-- Diretorio de recursos -->
 				<includes> <!-- Arquivos que serao incluidos nos recursos -->
 					<include>**/*.properties</include>
-					<include>**/.*.xml</include>
+					<include>**/*.xml</include>
+					<include>**/*.bat</include>
 				</includes>
 				<!-- Se quiser excluir algum arquivo dos recursos -->
 				<!-- <excludes> <exclude>**/*svn</exclude> </excludes> -->
@@ -76,6 +77,32 @@
 					</execution>
 				</executions>
 			</plugin>
+
+			<!-- http://maven.apache.org/plugins/maven-assembly-plugin/ -->
+			<plugin>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<version>2.4</version>
+				<configuration>
+					<descriptors>
+						<descriptor>/src/main/assembly/wrapper-install-package.xml</descriptor>
+					</descriptors>
+				</configuration>
+				<executions>
+					<execution>
+						<id>make-assembly</id>
+						<phase>install</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+			<!-- importando recursos compartilhados entre modulos -->
+			<plugin>
+				<artifactId>maven-remote-resources-plugin</artifactId>
+			</plugin>
+
 		</plugins>
 	</build>
 
