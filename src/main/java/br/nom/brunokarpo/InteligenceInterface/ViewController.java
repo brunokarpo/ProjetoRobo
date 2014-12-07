@@ -5,10 +5,16 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
+import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import br.nom.brunokarpo.services.Services;
 
 public class ViewController {
 
+	private static final Logger LOGGER = LogManager.getLogger(ViewController.class);
+	
 	private Services service;
 
 	private BufferedReader lerArq;
@@ -21,28 +27,28 @@ public class ViewController {
 		try {
 			FileReader arq = new FileReader(enderecoArquivo);
 			lerArq = new BufferedReader(arq);
-			System.out.println("Arquivo aberto:\n" + enderecoArquivo);
+			LOGGER.info("Abrindo o arquivo " + enderecoArquivo);
 
 			String linha = lerArq.readLine(); //Le a primeira linha do arquivos
-
+			
 			while(linha != null) {
-				linha.replace(" ", ""); // pega a chave e tira todos os espaços que tem nela
+
+				linha.replace(" ", ""); // pega a chave e tira todos os espaï¿½os que tem nela
 				if (linha.length() == 44)
 					service.salvar(linha);
 
 				linha = lerArq.readLine();
 			}
 
-			System.out.println("Fechando o arquivo");
+			LOGGER.info("Fechando o arquivo");
 			lerArq.close();
 
 		} catch(FileNotFoundException e) {
-			e.printStackTrace();
-			System.out.println("Arquivo não encontrado");
+			LOGGER.log(Level.ERROR, "Arquivo nao encontrado", e);
 
 		} catch (IOException e) {
-			e.printStackTrace();
-			System.out.println("Linha não encontrada");
+			LOGGER.log(Level.ERROR, "Linha nao encontrada", e);
+			
 		}
 
 	}
