@@ -32,6 +32,18 @@
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<configuration>
+					<archive>
+						<manifest>
+							<mainClass>${jsw.main.class}</mainClass>
+						</manifest>
+					</archive>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-antrun-plugin</artifactId>
 				<version>1.6</version>
 				<executions>
@@ -134,4 +146,11 @@
 
 	</dependencies>
 
+	<name>Projeto Robo - PN Interface</name>
+	<url>https://github.com/brunokarpo/ProjetoRobo.git</url>
+	<description>Aplicativo JAVA Gui que facilita a inserção e comparação de chaves de acesso no banco de dados da aplicação do Robo do Portal Nacional</description>
+	<organization>
+		<name>Bruno Nogueira de Oliveira</name>
+		<url>https://github.com/brunokarpo</url>
+	</organization>
 </project>
