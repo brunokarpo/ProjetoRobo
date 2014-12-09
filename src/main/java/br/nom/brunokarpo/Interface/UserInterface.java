@@ -54,7 +54,7 @@ public class UserInterface extends JFrame {
 		textField1.setHorizontalAlignment( JTextField.LEFT ); //Fala para o componente ficar a esquerda;
 		add( textField1 ); //Aqui a gente adiciona o TextField na Gui
 
-		/* Quando o usuario clicar na caixa de texto, ele deve selecionar um arquivo TXT na estrutura de diret�rios da m�quina
+		/* Quando o usuario clicar na caixa de texto, ele deve selecionar um arquivo TXT na estrutura de diretorios da maquina
 		 * Vamos implementar isso aqui; */
 
 		TextFieldHandler handler = new TextFieldHandler(); //Cria o objeto de evento;
@@ -62,8 +62,8 @@ public class UserInterface extends JFrame {
 	}
 
 	private void criarJButtonOk() {
-		buttonOk = new JButton("Ok"); // Cria o botão com o rótulo Ok;
-		add(buttonOk); //Adiciona o botão ok
+		buttonOk = new JButton("Ok"); // Cria o botão com o rotulo Ok;
+		add(buttonOk); //Adiciona o botao ok
 
 		JButtonHandlerOk handler = new JButtonHandlerOk(); // Cria o evento de clicar no botão;
 		buttonOk.addActionListener( handler ); // Atrela o evento ao clique do botao;
@@ -96,7 +96,7 @@ public class UserInterface extends JFrame {
 			// Se o cara clicou em textField1
 			if( event.getSource() == textField1 || event.getSource() == buttonOpen) {
 
-				fileChooser = new JFileChooser(); //primeiro seta o objeto de escolha do arquivo;
+				fileChooser = new JFileChooser(pathFile); //primeiro seta o objeto de escolha do arquivo;
 				FileNameExtensionFilter filtro = new FileNameExtensionFilter("TXT Files", "txt"); //Informa quais os tipos de arquivos vamos trabalhar
 				fileChooser.setFileFilter(filtro); // coloca o filtro no File Chooser
 
@@ -124,7 +124,7 @@ public class UserInterface extends JFrame {
 
 				ViewController view = new ViewController(); //Cria o Objeto Controlador
 
-				view.lerArquivo( path ); // Passa o arquivo TXT para o controlador iniciar a inserção das chaves de acesso;
+				view.lerArquivo( path ); // Passa o arquivo TXT para o controlador iniciar a insercao das chaves de acesso;
 
 
 			} else {

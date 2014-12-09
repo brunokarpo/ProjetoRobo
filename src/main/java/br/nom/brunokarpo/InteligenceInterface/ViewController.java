@@ -34,8 +34,10 @@ public class ViewController {
 			while(linha != null) {
 
 				linha.replace(" ", ""); // pega a chave e tira todos os espacos que tem nela
-				if (linha.length() == 44 && (!linha.substring(19, 21).equals("57")) );
+				if (linha.length() == 44 && linha.substring(20, 22).equals("55") ) { //verifica se a chave esta completa e se pertence a uma NFe
+					LOGGER.info("Salvando chave de acesso " + linha);
 					service.salvar(linha);
+				}
 
 				linha = lerArq.readLine();
 			}

@@ -1,5 +1,6 @@
 # Ignroando pastas de compilados
 target/
+logs/
 
 # Ignorando arquivos do Eclipse
 .settings/

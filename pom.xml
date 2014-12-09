@@ -145,6 +145,12 @@
 			<artifactId>Utilitarios</artifactId>
 			<version>1.0.0</version>
 		</dependency>
+
+		<dependency>
+		  <groupId>br.com.oobj</groupId>
+		  <artifactId>oobj-io</artifactId>
+		  <version>8.1.5-build48</version>
+		</dependency>
 	</dependencies>
 
 	<name>Projeto Robo - PN Interface</name>

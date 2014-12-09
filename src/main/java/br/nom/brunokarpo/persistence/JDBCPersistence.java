@@ -7,6 +7,7 @@ import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import br.com.oobj.util.Arquivo;
 import br.ufg.pw.utilitarios.JdbcUtil;
 
 public class JDBCPersistence {
@@ -14,17 +15,17 @@ public class JDBCPersistence {
 	private Connection conn; // Conex�o com o Banco de Dados
 	private PreparedStatement pstmt; // respons�vel pelas strings de consulta
 
-	private static final String propertiesFile = "../configs/bd-config.properties"; // arquivo de configura��o
+	private static final String PROPERTIESFILE = "/bd-config.properties"; // arquivo de configura��o
 	private static final Logger LOGGER = LogManager.getLogger(JDBCPersistence.class);
 
 	public void salvar(String chave_acesso) {
 		// implementa a salvura da chave de acesso no banco de dados
+		String url = Arquivo.getURLRelativaClasspath(PROPERTIESFILE).toString().replace("file:/", "");
 
 		try {
-			conn = JdbcUtil.createConnection( propertiesFile ); // abre uma conex�o com o Banco
-												// de Dados
+			conn = JdbcUtil.createConnection( url ); // abre uma conexao com o Banco de Dados
 
-			conn.setAutoCommit(false); // Cria uma transa��o no Banco de Dados
+			conn.setAutoCommit(false); // Cria uma transacao no Banco de Dados
 
 			pstmt = conn
 					.prepareStatement("insert into chaves_acesso values (?)");
