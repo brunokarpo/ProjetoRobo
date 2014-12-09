@@ -14,7 +14,7 @@ import br.nom.brunokarpo.services.Services;
 public class ViewController {
 
 	private static final Logger LOGGER = LogManager.getLogger(ViewController.class);
-	
+
 	private Services service;
 
 	private BufferedReader lerArq;
@@ -30,11 +30,11 @@ public class ViewController {
 			LOGGER.info("Abrindo o arquivo " + enderecoArquivo);
 
 			String linha = lerArq.readLine(); //Le a primeira linha do arquivos
-			
+
 			while(linha != null) {
 
-				linha.replace(" ", ""); // pega a chave e tira todos os espa�os que tem nela
-				if (linha.length() == 44)
+				linha.replace(" ", ""); // pega a chave e tira todos os espacos que tem nela
+				if (linha.length() == 44 && (!linha.substring(19, 21).equals("57")) );
 					service.salvar(linha);
 
 				linha = lerArq.readLine();
@@ -48,7 +48,7 @@ public class ViewController {
 
 		} catch (IOException e) {
 			LOGGER.log(Level.ERROR, "Linha nao encontrada", e);
-			
+
 		}
 
 	}
