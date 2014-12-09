@@ -14,7 +14,7 @@ public class JDBCPersistence {
 	private Connection conn; // Conex�o com o Banco de Dados
 	private PreparedStatement pstmt; // respons�vel pelas strings de consulta
 
-	private static final String propertiesFile = "/bd-config.properties"; // arquivo de configura��o
+	private static final String propertiesFile = "../configs/bd-config.properties"; // arquivo de configura��o
 	private static final Logger LOGGER = LogManager.getLogger(JDBCPersistence.class);
 
 	public void salvar(String chave_acesso) {
