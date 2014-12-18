@@ -72,11 +72,11 @@
 										includes="bd-config.properties log4j.xml" />
 								</copy>
 
-								<mkdir dir="${assembler.dir}/${jsw.daemon}/resources/META-INF" />
-								<copy todir="${assembler.dir}/${jsw.daemon}/resources/META-INF"
+								<mkdir dir="${assembler.dir}/${jsw.daemon}/resources" />
+								<copy todir="${assembler.dir}/${jsw.daemon}/resources"
 									includeEmptyDirs="false">
 									<fileset dir="${project.build.directory}/classes"
-										includes="persistence.xml" />
+										includes="**/persistence.xml" />
 								</copy>
 
 								<!-- Todos os arquivos templates... -->
