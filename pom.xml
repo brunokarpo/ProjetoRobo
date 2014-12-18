@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>ProjetoRobo</groupId>
 	<artifactId>ProjetoRobo</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>2.0.0</version>
 
 
 	<!-- valores padrao da geracao de strip -->
@@ -70,6 +70,13 @@
 									includeEmptyDirs="false">
 									<fileset dir="${project.build.directory}/classes"
 										includes="bd-config.properties log4j.xml" />
+								</copy>
+
+								<mkdir dir="${assembler.dir}/${jsw.daemon}/resources/META-INF" />
+								<copy todir="${assembler.dir}/${jsw.daemon}/resources/META-INF"
+									includeEmptyDirs="false">
+									<fileset dir="${project.build.directory}/classes"
+										includes="persistence.xml" />
 								</copy>
 
 								<!-- Todos os arquivos templates... -->
@@ -143,7 +150,7 @@
 		<dependency>
 			<groupId>Utilitarios</groupId>
 			<artifactId>Utilitarios</artifactId>
-			<version>1.0.0</version>
+			<version>2.0.0</version>
 		</dependency>
 
 		<dependency>
