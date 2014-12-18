@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="297.0" prefWidth="431.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.nom.brunokarpo.Interface.InterfaceController">
+   <children>
+      <ImageView layoutX="131.0" layoutY="23.0">
+         <image>
+            <Image url="@oobj.jpg" />
+         </image>
+      </ImageView>
+      <Label layoutX="38.0" layoutY="121.0" prefHeight="20.0" prefWidth="356.0" text="Selecione o arquivo com as chaves para importação">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txChavesAcesso" layoutX="38.0" layoutY="151.0" prefHeight="25.0" prefWidth="284.0" />
+      <Button fx:id="btProcurar" layoutX="339.0" layoutY="151.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="53.0" />
+      <Label layoutX="38.0" layoutY="185.0" prefHeight="20.0" prefWidth="356.0" text="Email do Destinatário">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txEmailDestinatario" layoutX="38.0" layoutY="211.0" prefHeight="25.0" prefWidth="356.0" />
+      <Button fx:id="btOk" layoutX="290.0" layoutY="250.0" mnemonicParsing="false" text="OK" />
+      <Button fx:id="btLimpar" layoutX="340.0" layoutY="250.0" mnemonicParsing="false" text="Limpar" />
+   </children>
+</AnchorPane>
