@@ -1,6 +1,10 @@
-package br.nom.brunokarpo.Interface;
+package br.nom.brunokarpo.controller;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -16,15 +20,29 @@ import javafx.stage.FileChooser;
 
 import javax.swing.JOptionPane;
 
-import br.nom.brunokarpo.InteligenceInterface.ViewController;
+import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+import br.nom.brunokarpo.services.Services;
 
 public class InterfaceController implements Initializable {
 	@FXML
 	private TextField txEmailDestinatario, txChavesAcesso;
 	@FXML
 	private Button btProcurar, btOk, btLimpar;
-	File file;
 
+	private static final Logger LOGGER = LogManager.getLogger(InterfaceController.class);
+
+	private Services service;
+
+	private BufferedReader lerArq;
+
+	public InterfaceController() {
+		service = new Services();
+	}
+
+	File file;
 
 	public void initialize(URL url, ResourceBundle bundle) {
 		iconButtonProcurar();
@@ -62,19 +80,47 @@ public class InterfaceController implements Initializable {
 	}
 
 	private void ok() {
-		if(txChavesAcesso.getText() != null && txEmailDestinatario.getText() != null) {
-			ViewController view = new ViewController();
-			view.lerArquivo(txChavesAcesso.getText());
-		} else if (txChavesAcesso.getText() == null) {
-			JOptionPane.showMessageDialog(null, "Selecione um arquivo TXT com as chaves de acesso!");
-		} else {
+		if (txChavesAcesso.getText() == null) {
+			 JOptionPane.showMessageDialog(null, "Selecione um arquivo TXT com as chaves de acesso!");
+		} else if (txEmailDestinatario.getText() == null) {
 			JOptionPane.showMessageDialog(null, "Informe o email do destinatário!");
+		} else {
+			lerArquivo(txChavesAcesso.getText());
 		}
 	}
 
 	private void limpar() {
 		if(txChavesAcesso.getText() != null) {
 			txChavesAcesso.setText(null);
+		}
+	}
+
+	public void lerArquivo(String enderecoArquivo) {
+		try {
+			FileReader arq = new FileReader(enderecoArquivo);
+			lerArq = new BufferedReader(arq);
+			LOGGER.info("Abrindo o arquivo " + enderecoArquivo);
+
+			String linha = lerArq.readLine(); //Le a primeira linha do arquivos
+
+			while(linha != null) {
+
+				linha.replace(" ", ""); // pega a chave e tira todos os espacos que tem nela
+				if (linha.length() == 44 && linha.substring(20, 22).equals("55") ) { //verifica se a chave esta completa e se pertence a uma NFe
+					LOGGER.info("Salvando chave de acesso " + linha);
+					service.salvar(linha);
+				}
+
+				linha = lerArq.readLine();
+			}
+
+			LOGGER.info("Fechando o arquivo");
+			lerArq.close();
+
+		} catch(FileNotFoundException e) {
+			LOGGER.log(Level.ERROR, "Arquivo nao encontrado", e);
+		} catch (IOException e) {
+			LOGGER.log(Level.ERROR, "Linha nao encontrada", e);
 		}
 	}
 }

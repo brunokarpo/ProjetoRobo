@@ -4,6 +4,8 @@ import br.ufg.pw.abstractEntity.AbstractEntity;
 
 public class EChavesAcesso extends AbstractEntity {
 
+	private static final long serialVersionUID = -6480178660102746440L;
+
 	private String chaveAcesso;
 
 	public EChavesAcesso(String chaveAcesso) {
@@ -17,6 +19,4 @@ public class EChavesAcesso extends AbstractEntity {
 	public void setChaveAcesso(String chaveAcesso) {
 		this.chaveAcesso = chaveAcesso;
 	}
-
-
 }
