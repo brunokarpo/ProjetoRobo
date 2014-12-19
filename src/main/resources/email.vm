@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+<style>
+html, body {
+	padding:0;
+	font-size:13px;
+	font-style:normal;
+	color:#333;
+	font-family:lucida grande,lucida,tahoma,helvetica,arial,sans-serif;
+	margin:0 auto 0 auto;
+	height: 100%;
+	width:100%;
+
+
+}
+.box {
+	width: 800px;
+	background: #f1f1f1; /* para browsers sem suporte a CSS 3 */
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#f0f0f0'); /* IE */
+	background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#f0f0f0)); /* webkit browsers */
+	background: -moz-linear-gradient(top,  #ffffff,  #f0f0f0); /* Firefox 3.6+ */
+    border-radius: 0.31em;
+	box-shadow: #9b9b9b 0.1em 0.5em 0.8em;
+	z-index:1;
+	margin: 10px 10px 0 5px;
+}
+</style>
+<div align="center">
+
+<table width="800" border="0" class="box">
+  <tr>
+    <td width="800" style="vertical-align:top;"><a href="http://www.oobj.com.br"><img src="http://oobj.info/pub/imagens/oobj/topo-email.jpg"/></a>
+     <p style="text-align:center; font-size:20px; font-weight:100; line-height:48px; font-family:lucida grande,lucida,tahoma,helvetica,arial,sans-serif;"><strong>Rob&ocirc; Portal Nacional finalizou o processamento</strong></p></td>
+
+  </tr>
+     <tr>
+    <td>
+    <p style="font-size:14px; text-align:center; line-height:18px; margin: 0 10px 0 10px;">*** Esse &eacute; um e-mail autom&aacute;tico. N&atilde;o &eacute; necess&aacute;rio respond&ecirc;-lo ***</p>
+    <br />
+
+    <p style="font-size:14px; text-align:justify; line-height:18px; margin: 0 10px 0 10px;font-family:lucida grande,lucida,tahoma,helvetica,arial,sans-serif;">&nbsp;</p>
+<p style="font-size:14px; text-align:justify; line-height:18px; margin: 0 10px 0 10px;font-family:lucida grande,lucida,tahoma,helvetica,arial,sans-serif;">&nbsp;</p>
+    <table width="600" border="0" align="center" style="text-align:center; font-family:lucida grande,lucida,tahoma,helvetica,arial,sans-serif; font-size:14px;">
+      <tr>
+        <p style="font-size:14px; text-align:center; line-height:18px; margin: 0 10px 0 10px;">Estamos enviando esse e-mail somente para alert&aacute;-lo que o processamento do Rob&ocirc; Portal Nacional foi finalizado com sucesso.</p>
+    <br />
+      </tr>
+    </table>
+   <br/>
+    <p style="font-size:14px; color:#af0e0e; text-align:center; line-height:18px; margin: 0 10px 0 10px;font-family:lucida grande,lucida,tahoma,helvetica,arial,sans-serif;">&nbsp;</p>
+    <p style="font-size:12px; text-align:justify; line-height:18px; margin: 0 10px 0 10px;font-family:lucida grande,lucida,tahoma,helvetica,arial,sans-serif;"> <a href="http://www.oobj.com.br" style="text-decoration:none;color:#333;"><strong>Oobj </strong></a> - <a href="http://www.oobj.com.br" style="text-decoration:none;color:#007cc2;"><strong>www.oobj.com.br</strong></a><br/>
+
+    </td>
+
+  </tr>
+
+   <tr>
+    <td width="800" style="vertical-align:top;"><a href="http://www.oobj.com.br"><a href="http://www.oobj.com.br"><img src="http://oobj.info/pub/imagens/oobj/rodape-email.png" border="0"/></a></td>
+
+  </tr>
+
+
+</table>
+</div>
+</body>
+</html>
