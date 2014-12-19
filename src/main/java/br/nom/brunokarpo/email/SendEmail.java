@@ -5,6 +5,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.StringWriter;
+import java.net.InetAddress;
 import java.util.Properties;
 
 import javax.mail.Authenticator;
@@ -26,7 +27,10 @@ import org.apache.velocity.app.VelocityEngine;
 public class SendEmail {
 
 	public static void main(String[] args) {
+		enviarEmail();
+	}
 
+	public static void enviarEmail() {
 		final Properties prop = System.getProperties();
 
 		try {
@@ -59,6 +63,9 @@ public class SendEmail {
 
 			Template t = ve.getTemplate("src/main/resources/email.vm");
 			VelocityContext context = new VelocityContext();
+			context.put("nomeHost", InetAddress.getLocalHost().getHostName());
+			context.put("ipHost", InetAddress.getLocalHost().getHostAddress());
+
 			StringWriter out = new StringWriter();
 			t.merge(context, out);
 

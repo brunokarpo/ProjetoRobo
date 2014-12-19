@@ -34,19 +34,31 @@ html, body {
 <table width="800" border="0" class="box">
   <tr>
     <td width="800" style="vertical-align:top;"><a href="http://www.oobj.com.br"><img src="http://oobj.info/pub/imagens/oobj/topo-email.jpg"/></a>
-     <p style="text-align:center; font-size:20px; font-weight:100; line-height:48px; font-family:lucida grande,lucida,tahoma,helvetica,arial,sans-serif;"><strong>Rob&ocirc; Portal Nacional finalizou o processamento</strong></p></td>
+     <p style="text-align:center; font-size:20px; font-weight:100; line-height:48px; font-family:lucida grande,lucida,tahoma,helvetica,arial,sans-serif;"><strong>Robô Portal Nacional finalizou o processamento</strong></p></td>
 
   </tr>
      <tr>
     <td>
     <p style="font-size:14px; text-align:center; line-height:18px; margin: 0 10px 0 10px;">*** Esse &eacute; um e-mail autom&aacute;tico. N&atilde;o &eacute; necess&aacute;rio respond&ecirc;-lo ***</p>
-    <br />
+
 
     <p style="font-size:14px; text-align:justify; line-height:18px; margin: 0 10px 0 10px;font-family:lucida grande,lucida,tahoma,helvetica,arial,sans-serif;">&nbsp;</p>
 <p style="font-size:14px; text-align:justify; line-height:18px; margin: 0 10px 0 10px;font-family:lucida grande,lucida,tahoma,helvetica,arial,sans-serif;">&nbsp;</p>
     <table width="600" border="0" align="center" style="text-align:center; font-family:lucida grande,lucida,tahoma,helvetica,arial,sans-serif; font-size:14px;">
       <tr>
-        <p style="font-size:14px; text-align:center; line-height:18px; margin: 0 10px 0 10px;">Estamos enviando esse e-mail somente para alert&aacute;-lo que o processamento do Rob&ocirc; Portal Nacional foi finalizado com sucesso.</p>
+        <p style="font-size:14px; text-align:center; line-height:18px; margin: 0 10px 0 10px;">Estamos enviando esse e-mail somente para alertá-lo que o processamento do <br>Robô Portal Nacional foi finalizado com sucesso.</p>
+        <tr>
+          <td width="170" style="font-weight:bold; text-align:right;"><span style="font-size:14px; text-align:justify; line-height:18px; margin: 0 10px 0 10px;font-family:lucida grande,lucida,tahoma,helvetica,arial,sans-serif;">M&aacute;quina de origem</span>:</td>
+        <td style="text-align:left;"><span style="font-size:14px; text-align:justify; line-height:18px; margin: 0 10px 0 10px;font-family:lucida grande,lucida,tahoma,helvetica,arial,sans-serif;">$!nomeHost</span></td>
+        </tr>
+        <tr>
+          <td width="153" style="font-weight:bold; text-align:right;"><span style="font-size:14px; text-align:justify; line-height:18px; margin: 0 10px 0 10px;font-family:lucida grande,lucida,tahoma,helvetica,arial,sans-serif;">IP do Servidor</span>:</td>
+          <td style="text-align:left;"><span style="font-size:14px; text-align:justify; line-height:18px; margin: 0 10px 0 10px;font-family:lucida grande,lucida,tahoma,helvetica,arial,sans-serif;">$!ipHost</span></td>
+        </tr>
+        <tr>
+          <td width="153" style="font-weight:bold; text-align:right;"><span style="font-size:14px; text-align:justify; line-height:18px; margin: 0 10px 0 10px;font-family:lucida grande,lucida,tahoma,helvetica,arial,sans-serif;">Certificado</span>:</td>
+          <td style="text-align:left;"><span style="font-size:14px; text-align:justify; line-height:18px; margin: 0 10px 0 10px;font-family:lucida grande,lucida,tahoma,helvetica,arial,sans-serif;">$!certificado</span></td>
+        </tr>
     <br />
       </tr>
     </table>
