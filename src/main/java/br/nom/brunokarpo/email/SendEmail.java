@@ -6,6 +6,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.StringWriter;
 import java.net.InetAddress;
+import java.net.URL;
 import java.util.Properties;
 
 import javax.mail.Authenticator;
@@ -24,17 +25,23 @@ import org.apache.velocity.Template;
 import org.apache.velocity.VelocityContext;
 import org.apache.velocity.app.VelocityEngine;
 
+import br.com.oobj.util.Arquivo;
+import br.com.oobj.util.config.Config;
+import br.com.oobj.util.config.ConfigPool;
+
 public class SendEmail {
 
 	public static void main(String[] args) {
-		enviarEmail();
+		Config config = ConfigPool.getConfig("configuracores-email.properties");
+		enviarEmail("arquivo-1.txt", config);
 	}
 
-	public static void enviarEmail() {
+	public static void enviarEmail(String nomeArquivoConcluido, Config config) {
 		final Properties prop = System.getProperties();
 
 		try {
-			prop.load(new FileInputStream(new File("src/main/resources/configuracoes-email.properties")));
+			URL urlProperties = Arquivo.getURLRelativaClasspath("/configuracoes-email.properties");
+			prop.load(new FileInputStream(new File( urlProperties.toString().replace("file:/", "") )));
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
@@ -59,12 +66,14 @@ public class SendEmail {
 			BodyPart body = new MimeBodyPart();
 
 			VelocityEngine ve = new VelocityEngine();
-			ve.init();
+			ve.init(ClassLoader.getSystemResource("configuracoes-email.properties").getFile());
 
-			Template t = ve.getTemplate("src/main/resources/email.vm");
+			Template t = ve.getTemplate("email.vm");
 			VelocityContext context = new VelocityContext();
 			context.put("nomeHost", InetAddress.getLocalHost().getHostName());
 			context.put("ipHost", InetAddress.getLocalHost().getHostAddress());
+			context.put("nomeArquivo", nomeArquivoConcluido);
+			context.put("certificado", config.getProperty("path-certificado"));
 
 			StringWriter out = new StringWriter();
 			t.merge(context, out);
